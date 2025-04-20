@@ -1,5 +1,5 @@
 import React, { createContext, useState, useEffect, useContext } from 'react';
-
+const API_BASE = import.meta.env.VITE_API_BASE;
 export const UserContext = createContext();
 // Create a custom hook for easier consumption
 export const useUser = () => {
@@ -35,7 +35,7 @@ const UserProvider = ({ children }) => {
     }
   
     try {
-      const res = await fetch(`http://localhost:5000/api/history/${username}`);
+      const res = await fetch(`${API_BASE}/api/history/${username}`);
       const data = await res.json();
       console.log('Fetched history data:', data);
 
@@ -56,7 +56,7 @@ const UserProvider = ({ children }) => {
     console.log(us)
     if (!us || searchHistory.includes(term)) return;
     try {
-      await fetch(`http://localhost:5000/api/history/${us}`, {
+      await fetch(`${API_BASE}/api/history/${us}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ us, term }),
