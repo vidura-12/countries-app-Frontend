@@ -18,6 +18,7 @@ This app includes user authentication, search functionality, region filtering, a
 - 🌎 **REST Countries API** integration
 - 🔍 **Search by country name**
 - 🗂️ **Filter by region**
+- 🔍 **Sort by population / Size Of Country / Name (ex- A - Z)**
 - 📄 **View country details**
 - 🧠 **User-specific search history**
 - 🌈 **Blurred modals + alert feedback (SweetAlert2)**
