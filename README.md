@@ -1,8 +1,3 @@
----
-
-## ✅ `README.md`
-
-```md
 # 🌍 REST Countries React App
 
 A fully responsive React application that displays country information using the [REST Countries API](https://restcountries.com/).  
