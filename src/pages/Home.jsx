@@ -125,28 +125,45 @@ const Home = () => {
               
               <SortFilter onSortChange={setSortOption} />
             </div>
-          {recentCountries.length > 0 && (
-            <div className="my-6 bg-white/80 backdrop-blur-sm p-4 rounded-xl shadow-sm border border-gray-100">
-              <h2 className="font-semibold text-lg mb-3 text-gray-700">Recently Viewed</h2>
-              <div className="flex gap-2 flex-wrap">
-                {recentCountries.map((code) => {
-                  const country = countries.find((c) => c.cca3 === code);
-                  return (
-                    <button
-                      key={code}
-                      onClick={() => handleCountryClick(code)}
-                      className="bg-white text-sm px-3 py-1.5 rounded-lg hover:bg-gray-50 border border-gray-200 shadow-xs transition-colors duration-200 flex items-center gap-1"
-                    >
-                      {country?.flag && (
-                        <span className="text-base">{country.flag}</span>
-                      )}
-                      <span>{country?.name?.common || code}</span>
-                    </button>
-                  );
-                })}
-              </div>
-            </div>
-          )}
+            {recentCountries.length > 0 && (
+  <div className="my-6 bg-white/80 backdrop-blur-sm p-4 rounded-xl shadow-sm border border-gray-100">
+    <h2 className="font-semibold text-lg mb-3 text-gray-700">Recently Viewed</h2>
+    <div className="flex gap-2 flex-wrap">
+      {recentCountries.map((code) => {
+        const country = countries.find((c) => c.cca3 === code);
+        return (
+          <button
+            key={code}
+            onClick={() => handleCountryClick(code)}
+            className="bg-white text-sm px-3 py-1.5 rounded-lg hover:bg-gray-50 border border-gray-200 shadow-xs transition-colors duration-200 flex items-center gap-1"
+          >
+            {country?.cca2 && (
+              <img 
+                src={`https://flagcdn.com/24x18/${country.cca2.toLowerCase()}.png`}
+                alt={country.name.common}
+                className="w-6 h-4 mr-1 object-cover"
+                loading="lazy"
+                onError={(e) => {
+                  e.target.style.display = 'none';
+                }}
+              />
+            )}
+            {country?.flag && (
+              <span 
+                className="text-base emoji-font" 
+                role="img" 
+                aria-label={country.name.common}
+              >
+                {country.flag}
+              </span>
+            )}
+            <span>{country?.name?.common || code}</span>
+          </button>
+        );
+      })}
+    </div>
+  </div>
+)}
 
 <CountryList 
         countries={currentCountries} 
