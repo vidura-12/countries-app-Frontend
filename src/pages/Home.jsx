@@ -9,6 +9,7 @@ import AuthModal from "../components/AuthModal";
 import { UserContext } from "../context/UserContext";
 import { fetchAllCountries, fetchCountriesByRegion, searchCountryByName } from "../services/countriesAPI"
 import Pagination from '../components/Pagination';
+import Footer from '../components/Footer'
 const Home = () => {
   const [countries, setCountries] = useState([]);
   const [filteredCountries, setFilteredCountries] = useState([]);
@@ -201,6 +202,7 @@ const Home = () => {
     paginate={paginate}
   />
 )}
+<Footer/>
     </div>
   );
 };
