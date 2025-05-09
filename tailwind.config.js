@@ -1,4 +1,5 @@
-module.exports = {
+/** @type {import('tailwindcss').Config} */
+export default {
   theme: {
     extend: {
       keyframes: {
@@ -28,20 +29,3 @@ module.exports = {
     },
   },
 };
-
-// Add these animation classes to your tailwind.config.js if not already there
-// module.exports = {
-//   theme: {
-//     extend: {
-//       animation: {
-//         shimmer: 'shimmer 2s infinite linear',
-//       },
-//       keyframes: {
-//         shimmer: {
-//           '0%': { backgroundPosition: '200% 0' },
-//           '100%': { backgroundPosition: '-200% 0' },
-//         },
-//       },
-//     },
-//   },
-// }
